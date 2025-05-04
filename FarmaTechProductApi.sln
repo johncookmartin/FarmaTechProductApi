@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FarmaTechDb", "FarmaTechDb\FarmaTechDb.sqlproj", "{52046FB4-3FD1-4970-9FF6-7D4FBC98FC9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaTechData", "FarmaTechData\FarmaTechData.csproj", "{1B1D05FA-C88A-4C1C-A128-DB5C1DF3EDDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{52046FB4-3FD1-4970-9FF6-7D4FBC98FC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52046FB4-3FD1-4970-9FF6-7D4FBC98FC9C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52046FB4-3FD1-4970-9FF6-7D4FBC98FC9C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1B1D05FA-C88A-4C1C-A128-DB5C1DF3EDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1D05FA-C88A-4C1C-A128-DB5C1DF3EDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1D05FA-C88A-4C1C-A128-DB5C1DF3EDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1D05FA-C88A-4C1C-A128-DB5C1DF3EDDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
