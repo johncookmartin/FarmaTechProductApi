@@ -71,4 +71,7 @@
     <Build Include="tables\Formulations.sql" />
     <Build Include="tables\FormulationArrays.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="FarmaTechDb.publish.xml" />
+  </ItemGroup>
 </Project>
