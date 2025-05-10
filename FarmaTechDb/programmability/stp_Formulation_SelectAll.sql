@@ -22,7 +22,8 @@ BEGIN
 		FROM dbo.Formulations f
 		INNER JOIN dbo.FormulationKeys fk
 			ON f.FormulationKeyId = fk.Id
-		WHERE f.' + QUOTENAME(@Column) + ' = @SearchId';
+		WHERE f.' + QUOTENAME(@Column) + ' = @SearchId
+		      AND f.DeletedAt IS NULL';
 
 	EXEC sp_executesql @Sql, N'SearchId INT', @SearchId = @SearchId;
 

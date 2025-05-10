@@ -74,6 +74,12 @@
     <Build Include="tables\FormulationArrays.sql" />
     <Build Include="programmability\stp_Formulation_SelectAll.sql" />
     <Build Include="programmability\stp_FormulationArray_SelectAll.sql" />
+    <Build Include="programmability\stp_Product_SelectAll.sql" />
+    <Build Include="programmability\stp_ProductFile_Select.sql" />
+    <Build Include="programmability\stp_ProductFile_SelectAllPhotos.sql" />
+    <Build Include="programmability\stp_FormulationKey_SelectAll.sql" />
+    <Build Include="programmability\stp_ProductGroup_SelectAll.sql" />
+    <Build Include="programmability\stp_TargetPest_SelectAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FarmaTechDb.publish.xml" />

@@ -7,6 +7,7 @@ BEGIN
 	SELECT [Value]
 	FROM dbo.[FormulationArrays]
 	WHERE [FormulationId] = @FormulationId
+	      AND [DeletedAt] IS NULL
 	ORDER BY [SortOrder]
 
 	RETURN 0

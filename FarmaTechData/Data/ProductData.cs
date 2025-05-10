@@ -51,4 +51,72 @@ public class ProductData
         return arrayValues;
     }
 
+    public async Task<List<ProductModel>> GetProductsAsync(int productGroupId)
+    {
+        var flatProducts = (await _db.QueryDataAsync<FlatProductRow, dynamic>("stp_Product_SelectAll",
+                                                                              new { ProductGroupId = productGroupId })).ToList();
+
+        var productTasks = flatProducts.Select(async x =>
+        {
+            var model = new ProductModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Photos = await GetProductPhotosAsync(x.Id),
+                Definition = x.Definition,
+                Sds = await GetProductFileAsync(x.SdsId),
+                Formulations = await GetFormulationsAsync(x.Id),
+                KeysToRemove = await GetKeysToRemove(x.Id),
+
+            };
+            return model;
+        });
+
+        return (await Task.WhenAll(productTasks)).ToList();
+    }
+
+    private async Task<List<string>> GetKeysToRemove(int productId)
+    {
+        var keysToRemove = (await _db.QueryDataAsync<string, dynamic>("stp_FormulationKey_SelectAll", new { ProductId = productId })).ToList();
+        return keysToRemove;
+    }
+
+    private async Task<List<ProductFileModel>> GetProductPhotosAsync(int productId)
+    {
+        var productPhotos = (await _db.QueryDataAsync<ProductFileModel, dynamic>("stp_ProductFile_SelectAllPhotos", new { ProductId = productId })).ToList();
+        return productPhotos;
+    }
+
+    public async Task<ProductFileModel?> GetProductFileAsync(int productFileId)
+    {
+        var productFile = (await _db.QueryDataAsync<ProductFileModel, dynamic>("stp_ProductFile_Select", new { ProductFileId = productFileId })).FirstOrDefault();
+        return productFile;
+    }
+
+    public async Task<List<ProductGroupModel>> GetProductGroupsAsync()
+    {
+        var flatProductGroups = (await _db.QueryDataAsync<FlatProductGroupRow, dynamic>("stp_ProductGroup_SelectAll", new { })).ToList();
+
+        var productGroupTasks = flatProductGroups.Select(async x =>
+        {
+            var model = new ProductGroupModel
+            {
+                Id = x.Id,
+                Group = x.Group,
+                GroupPhoto = await GetProductFileAsync(x.PhotoId),
+                Products = await GetProductsAsync(x.Id),
+                TargetPests = await GetTargetPestsAsync(x.Id),
+                SpecialInstructions = x.SpecialInstructions
+            };
+            return model;
+        });
+
+        return (await Task.WhenAll(productGroupTasks)).ToList();
+    }
+
+    private async Task<List<string>> GetTargetPestsAsync(int productGroupId)
+    {
+        var targetPests = (await _db.QueryDataAsync<string, dynamic>("stp_TargetPest_SelectAll", new { ProductGroupId = productGroupId })).ToList();
+        return targetPests;
+    }
 }
