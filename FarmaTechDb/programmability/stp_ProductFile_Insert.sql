@@ -11,7 +11,11 @@ BEGIN
 
 	IF EXISTS(SELECT 1 FROM [dbo].[ProductFiles] WHERE [BlobPath] = @BlobPath AND [FileUrl] = @FileUrl AND [DeletedAt] IS NULL)
 		BEGIN
-			SET @ProductFileId = -1;
+			SELECT TOP 1 @ProductFileId = [Id]
+			FROM [dbo].[ProductFiles]
+			WHERE [BlobPath] = @BlobPath
+				AND [FileUrl] = @FileUrl
+				AND [DeletedAt] IS NULL;
 		END
 	ELSE
 		BEGIN

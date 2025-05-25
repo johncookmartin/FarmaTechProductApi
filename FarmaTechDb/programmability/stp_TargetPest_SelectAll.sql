@@ -4,7 +4,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT tp.[TargetPest]
+	SELECT tp.[Id], 
+		   tp.[TargetPest]
 	FROM [dbo].[TargetPests] tp
 	INNER JOIN [dbo].[ProductGroupTargetPests] pgtp
 	ON tp.Id = pgtp.TargetPestId

@@ -5,6 +5,6 @@ public class ProductGroupModel
     public string Group { get; set; } = string.Empty;
     public ProductFileModel? GroupPhoto { get; set; }
     public List<ProductModel> Products { get; set; } = new List<ProductModel>();
-    public List<string> TargetPests { get; set; } = new List<string>();
+    public List<TargetPestModel> TargetPests { get; set; } = new List<TargetPestModel>();
     public string? SpecialInstructions { get; set; }
 }

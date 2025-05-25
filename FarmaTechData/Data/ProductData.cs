@@ -114,9 +114,50 @@ public class ProductData : IProductData
         return (await Task.WhenAll(productGroupTasks)).ToList();
     }
 
-    private async Task<List<string>> GetTargetPestsAsync(int productGroupId)
+    public async Task<int> CreateProductGroupAsync(ProductGroupModel productGroup)
     {
-        var targetPests = (await _db.QueryDataAsync<string, dynamic>("stp_TargetPest_SelectAll", new { ProductGroupId = productGroupId })).ToList();
+        int? groupPhotoId = await CreateProductFileAsync(productGroup.GroupPhoto);
+        var productGroupId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductGroup_Insert",
+                                                                    new
+                                                                    {
+                                                                        Group = productGroup.Group,
+                                                                        SpecialInstructions = productGroup.SpecialInstructions,
+                                                                        PhotoId = groupPhotoId,
+                                                                    })).First();
+
+        if (productGroupId != -1)
+        {
+            foreach (var targetPest in productGroup.TargetPests)
+            {
+                await _db.ExecuteDataAsync("stp_ProductGroupTargetPest_Insert", new { ProductGroupId = productGroupId, TargetPestId = targetPest.Id });
+            }
+        }
+
+        return productGroupId;
+    }
+
+    public async Task<int?> CreateProductFileAsync(ProductFileModel? productFile)
+    {
+        if (productFile == null)
+        {
+            return null;
+        }
+
+        int productFileId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductFile_Insert",
+                                               new { productFile })).FirstOrDefault();
+        return productFileId;
+    }
+
+    private async Task<List<TargetPestModel>> GetTargetPestsAsync(int productGroupId)
+    {
+        var targetPests = (await _db.QueryDataAsync<TargetPestModel, dynamic>("stp_TargetPest_SelectAll", new { ProductGroupId = productGroupId })).ToList();
         return targetPests;
+    }
+
+    public async Task<int> CreateTargetPestAsync(string targetPest)
+    {
+        var targetPestId = (await _db.QueryDataAsync<int, dynamic>("stp_TargetPest_Insert",
+            new { TargetPest = targetPest })).First();
+        return targetPestId;
     }
 }
