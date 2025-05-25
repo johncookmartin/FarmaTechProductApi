@@ -80,6 +80,10 @@
     <Build Include="programmability\stp_FormulationKey_SelectAll.sql" />
     <Build Include="programmability\stp_ProductGroup_SelectAll.sql" />
     <Build Include="programmability\stp_TargetPest_SelectAll.sql" />
+    <Build Include="programmability\stp_ProductGroup_Insert.sql" />
+    <Build Include="programmability\stp_ProductFile_Insert.sql" />
+    <Build Include="programmability\stp_TargetPest_Insert.sql" />
+    <Build Include="programmability\stp_ProductGroupTargetPest_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FarmaTechDb.publish.xml" />

@@ -8,4 +8,5 @@
 	[CreatedAt] DATETIME NOT NULL DEFAULT GETDATE(),
 	[DeletedAt] DATETIME NULL,
 	[UpdatedAt] DATETIME NULL,
+	CONSTRAINT [UQ_ProductFiles_BlobPath_FileUrl_DeletedAt] UNIQUE ([BlobPath], [FileUrl], [DeletedAt])
 )

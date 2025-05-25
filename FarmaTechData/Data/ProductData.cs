@@ -2,7 +2,7 @@
 using FarmaTechData.Models;
 
 namespace FarmaTechData.Data;
-public class ProductData
+public class ProductData : IProductData
 {
     private readonly ISqlDataAccess _db;
 
