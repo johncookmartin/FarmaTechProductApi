@@ -5,7 +5,7 @@ using ProductApi.Features.BlobStorage.Access;
 
 namespace ProductApi.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/product-files")]
 public class ProductFilesController : ControllerBase
 {
     private readonly IProductFileAccess _db;

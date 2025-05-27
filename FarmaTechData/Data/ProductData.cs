@@ -163,7 +163,7 @@ public class ProductData : IProductData
         return rowsAffected == 1;
     }
 
-    private async Task<List<TargetPestModel>> GetTargetPestsAsync(int productGroupId)
+    public async Task<List<TargetPestModel>> GetTargetPestsAsync(int? productGroupId)
     {
         var targetPests = (await _db.QueryDataAsync<TargetPestModel, dynamic>("stp_TargetPest_SelectAll", new { ProductGroupId = productGroupId })).ToList();
         return targetPests;

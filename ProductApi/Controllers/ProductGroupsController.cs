@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProductApi.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/product-groups")]
 public class ProductGroupsController : ControllerBase
 {
     private readonly IProductData _db;
