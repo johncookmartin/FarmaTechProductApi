@@ -84,6 +84,7 @@
     <Build Include="programmability\stp_ProductFile_Insert.sql" />
     <Build Include="programmability\stp_TargetPest_Insert.sql" />
     <Build Include="programmability\stp_ProductGroupTargetPest_Insert.sql" />
+    <Build Include="programmability\stp_ProductFile_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FarmaTechDb.publish.xml" />

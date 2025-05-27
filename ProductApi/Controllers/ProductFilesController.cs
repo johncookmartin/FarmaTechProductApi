@@ -15,7 +15,7 @@ public class ProductFilesController : ControllerBase
         _db = db;
     }
 
-    [HttpGet("name/{fileName}")]
+    [HttpGet("blob/{fileName}")]
     public async Task<IActionResult> GetByFileName(string fileName)
     {
         try
@@ -37,7 +37,7 @@ public class ProductFilesController : ControllerBase
         }
     }
 
-    [HttpGet("id/{id:int}")]
+    [HttpGet("data/{id:int}")]
     public async Task<ActionResult<ProductFileModel>> GetById(int id)
     {
         var productFile = await _db.DownloadFileById(id);
@@ -70,4 +70,24 @@ public class ProductFilesController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { Id = fileId }, fileId);
 
     }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] ProductFileModel productFile)
+    {
+        try
+        {
+            await _db.UpdateFile(productFile);
+        }
+        catch (ApiException apiEx)
+        {
+            return StatusCode(apiEx.StatusCode, apiEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
+
+        return NoContent();
+    }
+
 }

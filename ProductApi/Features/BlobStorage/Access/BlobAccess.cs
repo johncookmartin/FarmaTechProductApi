@@ -46,7 +46,7 @@ public class BlobAccess
         return productFile;
     }
 
-    public async Task<int?> UploadFile([FromForm] IFormFile file)
+    public async Task<int?> UploadFile(IFormFile file)
     {
         if (file == null || file.Length == 0)
         {
@@ -71,9 +71,33 @@ public class BlobAccess
 
     }
 
-    private async Task<int?> CreateFileRecord(string fileType, string blobUrl, string blobPath, string? description = null)
+    public async Task UpdateFile(ProductFileModel productFile)
     {
-        int? fileId = await _db.CreateProductFileAsync(fileType, blobUrl, blobPath, description);
+        if (productFile == null || productFile.Id <= 0)
+        {
+            throw new ApiException("Invalid product file data", 400);
+        }
+
+        var existingFile = await _db.GetProductFileAsync(productFile.Id);
+        if (existingFile == null)
+        {
+            throw new ApiException("Product file not found", 404);
+        }
+
+        if (!string.IsNullOrWhiteSpace(productFile.FileUrl)) existingFile.FileUrl = productFile.FileUrl;
+        if (!string.IsNullOrWhiteSpace(productFile.BlobPath)) existingFile.BlobPath = productFile.BlobPath;
+        if (!string.IsNullOrWhiteSpace(productFile.Description)) existingFile.Description = productFile.Description;
+        if (!string.IsNullOrWhiteSpace(productFile.FileType)) existingFile.FileType = productFile.FileType;
+
+        bool success = await _db.UpdateProductFileAsync(existingFile);
+        if (!success)
+        {
+            throw new ApiException("Failed to update product file", 500);
+        }
+    }
+    private async Task<int> CreateFileRecord(string fileType, string blobUrl, string blobPath, string? description = null)
+    {
+        int fileId = await _db.CreateProductFileAsync(fileType, blobUrl, blobPath, description);
 
         return fileId;
     }

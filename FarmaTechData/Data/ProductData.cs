@@ -116,22 +116,12 @@ public class ProductData : IProductData
 
     public async Task<int> CreateProductGroupAsync(ProductGroupModel productGroup)
     {
-        int? groupPhotoId = null;
-        if (productGroup.GroupPhoto != null)
-        {
-            groupPhotoId = await CreateProductFileAsync(
-            productGroup.GroupPhoto.FileType,
-            productGroup.GroupPhoto.FileUrl,
-            productGroup.GroupPhoto.BlobPath,
-            productGroup.GroupPhoto.Description);
-        }
-
         var productGroupId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductGroup_Insert",
                                                                     new
                                                                     {
                                                                         Group = productGroup.Group,
                                                                         SpecialInstructions = productGroup.SpecialInstructions,
-                                                                        PhotoId = groupPhotoId,
+                                                                        PhotoId = productGroup.GroupPhoto?.Id,
                                                                     })).First();
 
         if (productGroupId != -1)
@@ -145,13 +135,8 @@ public class ProductData : IProductData
         return productGroupId;
     }
 
-    public async Task<int?> CreateProductFileAsync(string fileType, string fileUrl, string blobPath, string? description)
+    public async Task<int> CreateProductFileAsync(string fileType, string fileUrl, string blobPath, string? description)
     {
-        if (fileUrl == null)
-        {
-            return null;
-        }
-
         int productFileId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductFile_Insert",
                                                new
                                                {
@@ -161,6 +146,21 @@ public class ProductData : IProductData
                                                    Description = description
                                                })).FirstOrDefault();
         return productFileId;
+    }
+
+    public async Task<bool> UpdateProductFileAsync(ProductFileModel productFile)
+    {
+        int rowsAffected = (await _db.QueryDataAsync<int, dynamic>("stp_ProductFile_Update",
+            new
+            {
+                Id = productFile.Id,
+                FileType = productFile.FileType,
+                FileUrl = productFile.FileUrl,
+                BlobPath = productFile.BlobPath,
+                Description = productFile.Description
+            })).First();
+
+        return rowsAffected == 1;
     }
 
     private async Task<List<TargetPestModel>> GetTargetPestsAsync(int productGroupId)
