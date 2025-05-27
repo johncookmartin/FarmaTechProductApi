@@ -116,7 +116,16 @@ public class ProductData : IProductData
 
     public async Task<int> CreateProductGroupAsync(ProductGroupModel productGroup)
     {
-        int? groupPhotoId = await CreateProductFileAsync(productGroup.GroupPhoto);
+        int? groupPhotoId = null;
+        if (productGroup.GroupPhoto != null)
+        {
+            groupPhotoId = await CreateProductFileAsync(
+            productGroup.GroupPhoto.FileType,
+            productGroup.GroupPhoto.FileUrl,
+            productGroup.GroupPhoto.BlobPath,
+            productGroup.GroupPhoto.Description);
+        }
+
         var productGroupId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductGroup_Insert",
                                                                     new
                                                                     {
@@ -136,15 +145,21 @@ public class ProductData : IProductData
         return productGroupId;
     }
 
-    public async Task<int?> CreateProductFileAsync(ProductFileModel? productFile)
+    public async Task<int?> CreateProductFileAsync(string fileType, string fileUrl, string blobPath, string? description)
     {
-        if (productFile == null)
+        if (fileUrl == null)
         {
             return null;
         }
 
         int productFileId = (await _db.QueryDataAsync<int, dynamic>("stp_ProductFile_Insert",
-                                               new { productFile })).FirstOrDefault();
+                                               new
+                                               {
+                                                   FileType = fileType,
+                                                   FileUrl = fileUrl,
+                                                   BlobPath = blobPath,
+                                                   Description = description
+                                               })).FirstOrDefault();
         return productFileId;
     }
 

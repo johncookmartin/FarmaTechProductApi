@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ProductPhotos]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[ProductId] INT NOT NULL,
 	[PhotoId] INT NOT NULL,
 	[DeletedAt] DATETIME2 NULL,

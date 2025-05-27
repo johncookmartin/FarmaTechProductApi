@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ProductGroups]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[Group] VARCHAR(255) NOT NULL,
 	[PhotoId] INT NULL,
 	[SpecialInstructions] VARCHAR(MAX) NULL,

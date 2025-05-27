@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Formulations]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[ProductId] INT NOT NULL,
 	[ParentId] INT NULL,
 	[FormulationKeyId] INT NOT NULL,

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ProductGroupTargetPests]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[ProductGroupId] INT NOT NULL,
 	[TargetPestId] INT NOT NULL,
 	[DeletedAt] DATETIME2 NULL,

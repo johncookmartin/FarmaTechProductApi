@@ -20,7 +20,7 @@ builder.Services.AddScoped<IProductFileAccess>(sp =>
 {
     var factory = sp.GetRequiredService<IBlobServiceFactory>();
     var db = sp.GetRequiredService<IProductData>();
-    var blobService = factory.Create("Products");
+    var blobService = factory.Create("products");
 
     return new ProductFileAccess(blobService, db);
 });
@@ -29,7 +29,7 @@ builder.Services.AddScoped<IFlyFileAccess>(sp =>
 {
     var factory = sp.GetRequiredService<IBlobServiceFactory>();
     var db = sp.GetRequiredService<IProductData>();
-    var blobService = factory.Create("Flies");
+    var blobService = factory.Create("flies");
 
     return new FlyFileAccess(blobService, db);
 });

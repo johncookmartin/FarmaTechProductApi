@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ProductKeysToRemove]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[ProductId] INT NOT NULL,
 	[FormulationKeyId] INT NOT NULL,
 	[DeletedAt] DATETIME2 NULL,

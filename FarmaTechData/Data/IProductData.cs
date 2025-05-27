@@ -3,7 +3,7 @@
 namespace FarmaTechData.Data;
 public interface IProductData
 {
-    Task<int?> CreateProductFileAsync(ProductFileModel? productFile);
+    Task<int?> CreateProductFileAsync(string fileType, string fileUrl, string blobPath, string? description);
     Task<int> CreateProductGroupAsync(ProductGroupModel productGroup);
     Task<int> CreateTargetPestAsync(string targetPest);
     Task<List<FormulationModel>> GetFormulationsAsync(int searchId, bool searchProduct = true);

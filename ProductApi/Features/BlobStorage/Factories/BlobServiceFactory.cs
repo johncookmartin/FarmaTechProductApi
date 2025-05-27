@@ -13,7 +13,7 @@ public class BlobServiceFactory : IBlobServiceFactory
 
     public IBlobService Create(string containerName)
     {
-        var accountName = _config["BlobStorage:AccountName"];
+        var accountName = _config["AzureBlobStorage:AccountName"];
         if (string.IsNullOrEmpty(accountName))
         {
             throw new ArgumentException("BlobStorage:AccountName configuration is missing.");

@@ -25,11 +25,14 @@ public class BlobAccess
         }
         try
         {
-            var stream = await _blob.StreamAsync(fileName);
-            return new FileStreamResult(stream, "application/octet-stream")
+            string safeName = Uri.UnescapeDataString(fileName);
+
+            var stream = await _blob.StreamAsync(safeName);
+            var result = new FileStreamResult(stream, "application/octet-stream")
             {
-                FileDownloadName = fileName
+                FileDownloadName = Path.GetFileName(safeName)
             };
+            return result;
         }
         catch (Exception ex)
         {
@@ -70,13 +73,7 @@ public class BlobAccess
 
     private async Task<int?> CreateFileRecord(string fileType, string blobUrl, string blobPath, string? description = null)
     {
-        int? fileId = await _db.CreateProductFileAsync(new ProductFileModel()
-        {
-            FileType = fileType,
-            FileUrl = blobUrl,
-            BlobPath = blobPath,
-            Description = description
-        });
+        int? fileId = await _db.CreateProductFileAsync(fileType, blobUrl, blobPath, description);
 
         return fileId;
     }
