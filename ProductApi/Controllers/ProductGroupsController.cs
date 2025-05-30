@@ -39,4 +39,21 @@ public class ProductGroupsController : ControllerBase
         var productGroupId = await _db.CreateProductGroupAsync(productGroup);
         return productGroupId == -1 ? BadRequest($"Product Group of {productGroup.Group} already exists!") : CreatedAtAction(nameof(Get), new { Id = productGroupId }, productGroupId);
     }
+
+    [HttpPut]
+    public async Task<ActionResult<bool>> Put([FromBody] ProductGroupModel productGroup)
+    {
+        if (productGroup == null)
+        {
+            return BadRequest("Product group cannot be null");
+        }
+        var productGroups = await _db.GetProductGroupsAsync();
+        var existingGroup = productGroups.FirstOrDefault(x => x.Id == productGroup.Id);
+        if (existingGroup == null)
+        {
+            return NotFound($"Product group with ID {productGroup.Id} not found");
+        }
+        var updated = await _db.UpdateProductGroupAsync(productGroup);
+        return updated ? Ok(true) : BadRequest($"Failed to update product group {productGroup.Group}");
+    }
 }

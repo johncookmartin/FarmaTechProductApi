@@ -12,4 +12,5 @@ public interface IProductData
     Task<List<ProductModel>> GetProductsAsync(int productGroupId);
     Task<List<TargetPestModel>> GetTargetPestsAsync(int? productGroupId);
     Task<bool> UpdateProductFileAsync(ProductFileModel productFile);
+    Task<bool> UpdateProductGroupAsync(ProductGroupModel productGroup);
 }

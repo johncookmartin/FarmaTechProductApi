@@ -128,11 +128,39 @@ public class ProductData : IProductData
         {
             foreach (var targetPest in productGroup.TargetPests)
             {
-                await _db.ExecuteDataAsync("stp_ProductGroupTargetPest_Insert", new { ProductGroupId = productGroupId, TargetPestId = targetPest.Id });
+                await JoinProductGroupTargetPest(productGroupId, targetPest.Id);
             }
         }
 
         return productGroupId;
+    }
+
+    public async Task<bool> UpdateProductGroupAsync(ProductGroupModel productGroup)
+    {
+        int rowsAffected = (await _db.QueryDataAsync<int, dynamic>("stp_ProductGroup_Update",
+            new
+            {
+                Id = productGroup.Id,
+                Group = productGroup.Group,
+                SpecialInstructions = productGroup.SpecialInstructions,
+                PhotoId = productGroup.GroupPhoto?.Id
+            })).First();
+        if (rowsAffected == 1)
+        {
+
+            await _db.ExecuteDataAsync("stp_ProductGroupTargetPest_DeleteAll", new { ProductGroupId = productGroup.Id });
+
+            foreach (var targetPest in productGroup.TargetPests)
+            {
+                await JoinProductGroupTargetPest(productGroup.Id, targetPest.Id);
+            }
+        }
+        return rowsAffected == 1;
+    }
+
+    private async Task JoinProductGroupTargetPest(int productGroupId, int targetPestId)
+    {
+        await _db.ExecuteDataAsync("stp_ProductGroupTargetPest_Insert", new { ProductGroupId = productGroupId, TargetPestId = targetPestId });
     }
 
     public async Task<int> CreateProductFileAsync(string fileType, string fileUrl, string blobPath, string? description)
