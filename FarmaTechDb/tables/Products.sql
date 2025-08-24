@@ -7,5 +7,8 @@
 	[CreatedAt] DATETIME NOT NULL DEFAULT GETDATE(),
 	[DeletedAt] DATETIME NULL,
 	[UpdatedAt] DATETIME NULL,
-	Constraint [FK_Products_SDS] FOREIGN KEY ([SdsId]) REFERENCES [dbo].[ProductFiles]([Id]),
+	[CreatedBy] VARCHAR(100) NULL, 
+    [DeletedBy] VARCHAR(100) NULL, 
+    [UpdatedBy] VARCHAR(100) NULL, 
+    Constraint [FK_Products_SDS] FOREIGN KEY ([SdsId]) REFERENCES [dbo].[ProductFiles]([Id]),
 )

@@ -7,6 +7,9 @@
 	[CreatedAt] DATETIME NOT NULL DEFAULT GETDATE(),
 	[DeletedAt] DATETIME NULL,
 	[UpdatedAt] DATETIME NULL,
-	CONSTRAINT [FK_ProductGroups_Photos] FOREIGN KEY ([PhotoId]) REFERENCES [dbo].[ProductFiles]([Id]),
+	[CreatedBy] VARCHAR(100) NULL, 
+    [DeletedBy] VARCHAR(100) NULL, 
+    [UpdatedBy] VARCHAR(100) NULL, 
+    CONSTRAINT [FK_ProductGroups_Photos] FOREIGN KEY ([PhotoId]) REFERENCES [dbo].[ProductFiles]([Id]),
 	CONSTRAINT [UQ_ProductGroups_Group_DeletedAt] UNIQUE ([Group], [DeletedAt])
 )

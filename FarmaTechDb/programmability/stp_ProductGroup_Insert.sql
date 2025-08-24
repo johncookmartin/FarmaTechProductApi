@@ -1,7 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[stp_ProductGroup_Insert]
 	@Group VARCHAR(255),
 	@SpecialInstructions VARCHAR(MAX),
-	@PhotoId INT
+	@PhotoId INT,
+	@User VARCHAR(100)
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -19,14 +20,16 @@ BEGIN
 				[Group],
 				[PhotoId],
 				[SpecialInstructions],
-				[CreatedAt]
+				[CreatedAt],
+				[CreatedBy]
 			)
 			VALUES
 			(
 				@Group,
 				@PhotoId,
 				@SpecialInstructions,
-				CURRENT_TIMESTAMP
+				CURRENT_TIMESTAMP,
+				@User
 			);
 
 			SET @ProductGroupId = SCOPE_IDENTITY();

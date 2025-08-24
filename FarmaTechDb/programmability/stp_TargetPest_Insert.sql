@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[stp_TargetPest_Insert]
-	@TargetPest VARCHAR(255)
+	@TargetPest VARCHAR(255),
+	@User VARCHAR(100)
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -14,11 +15,13 @@ BEGIN
 		BEGIN
 			INSERT INTO [dbo].[TargetPests]
 			(
-				[TargetPest]
+				[TargetPest],
+				[CreatedBy]
 			)
 			VALUES
 			(
-				@TargetPest
+				@TargetPest,
+				@User
 			);
 
 			SET @TargetPestId = SCOPE_IDENTITY();			

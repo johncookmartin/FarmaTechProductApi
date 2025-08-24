@@ -3,7 +3,8 @@
 	@FileType VARCHAR(50),
 	@BlobPath VARCHAR(255),
 	@FileUrl VARCHAR(255),
-	@Description VARCHAR(255) = NULL
+	@Description VARCHAR(255) = NULL,
+	@User VARCHAR(100) = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -14,7 +15,8 @@ BEGIN
 		[BlobPath] = @BlobPath,
 		[FileUrl] = @FileUrl,
 		[Description] = @Description,
-		[UpdatedAt] = GETDATE()
+		[UpdatedAt] = GETDATE(),
+		[UpdatedBy] = @User
 	WHERE 
 		[Id] = @Id;
 

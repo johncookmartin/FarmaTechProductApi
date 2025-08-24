@@ -2,7 +2,8 @@
 	@Id INT,
 	@Group VARCHAR(255),
 	@SpecialInstructions VARCHAR(MAX) = NULL,
-	@PhotoId INT = NULL
+	@PhotoId INT = NULL,
+	@User VARCHAR(100)
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -12,7 +13,8 @@ BEGIN
 		[Group] = @Group,
 		[SpecialInstructions] = @SpecialInstructions,
 		[PhotoId] = @PhotoId,
-		[UpdatedAt] = GETDATE()
+		[UpdatedAt] = GETDATE(),
+		[UpdatedBy] = @User
 	WHERE 
 		[Id] = @Id;
 

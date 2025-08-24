@@ -2,7 +2,8 @@
 	@FileType VARCHAR(50),
 	@BlobPath VARCHAR(255),
 	@FileUrl VARCHAR(255),
-	@Description VARCHAR(255)
+	@Description VARCHAR(255),
+	@User VARCHAR(100)
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -25,7 +26,8 @@ BEGIN
 				[BlobPath],
 				[FileUrl],
 				[Description],
-				[CreatedAt]
+				[CreatedAt],
+				[CreatedBy]
 			)
 			VALUES
 			(
@@ -33,7 +35,8 @@ BEGIN
 				@BlobPath,
 				@FileUrl,
 				@Description,
-				CURRENT_TIMESTAMP
+				CURRENT_TIMESTAMP,
+				@User
 			);
 
 			SET @ProductFileId = SCOPE_IDENTITY();

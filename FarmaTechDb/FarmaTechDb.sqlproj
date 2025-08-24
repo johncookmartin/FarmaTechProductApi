@@ -91,4 +91,7 @@
   <ItemGroup>
     <None Include="FarmaTechDb.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="FarmaTechDb.refactorlog" />
+  </ItemGroup>
 </Project>
