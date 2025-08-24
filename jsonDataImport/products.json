@@ -1,0 +1,263 @@
+[
+   {
+     "group": "FT Cuelure",
+     "group_photo": "/liquid/cl/all.jpg",
+     "products" : [
+        {
+          "name": "FT Cuelure",
+          "photos": ["/liquid/cl/10k_box.jpg","/liquid/cl/10k.jpg","/liquid/cl/1k.jpg","/liquid/cl/20k.jpg"],
+          "definition": "FT Cuelure is a liquid attractant for the monitoring and surveying of Fruit Flies. FT Cuelure is guaranteed to be >98% purity by GC and is registered in the United States by the Environmental Protection Agency (EPA) for manufacturers use.",
+          "sds" : "SDS FT-Cuelure.pdf",
+          "formulations": {
+            "type": "liquid",
+            "purity": ">98%",
+            "chemical_name": "4-[4-(acetyloxy)phenyl]-2-butanone",
+            "physical_state": "Liquid",
+            "packaging_options": ["1KG", "5KG", "10KG", "20KG"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-CL Lure",
+          "photos": ["/lures/cl/strip_open.jpg","/lures/cl/strip_packaged.jpg","/lures/cl/wafer_open.jpg","/lures/cl/wafer_packaged.jpg"],
+          "definition": "Solid Cuelure (Strip/Wafer/Lure) measuring (1”x2”x1/8”,2”x2”x1/8”, 2”x3”x1/8”)  used for the monitoring of fruit flies. FT-Cuelure (Wafer/Lure/) contain (4/6/10) grams of Cuelure with a controlled release rate allowing for long term monitoring. FT-Cuelure (Strip/Wafer/Lure) fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body",
+         "sds" : "SDS FT-CL Lure.pdf",
+         "formulations":{
+            "type": "solid",
+            "subtype": "wafer/lure/strip",
+            "sizes": ["1x2x1/8", "2x2x1/8", "2x3x1/8"],
+            "weights": ["4g", "6g", "10g"],
+            "packaging": ["12", "9", "6"],
+            "notes": "Can be individually packaged upon request"
+         },
+         "keys_to_remove":[]
+        }
+     ],
+     "target_pests": [
+       "Melon Fly (Bactrocera cucurbitae)",
+       "Queensland Fly (Bactrocera tryoni)",
+       "Lesser Queensland Fly (Bactrocera neohumeralis)",
+       "Mango Fly (Bactrocera frauenfeldi)",
+       "Fijian Fruit Fly (Bactrocera passiflorae)",
+       "And more..."
+     ],
+     "special_instructions": "Store at room temperature. Not registered for control. No killing agent."
+   },
+   {
+      "group": "FT Terpinyl Acetate",
+      "group_photo": "/lures/ta/ta_packaged.jpg",
+      "products": [
+        {
+          "name": "FT Terpinyl Acetate",
+          "photos": ["/lures/ta/ta_open.jpg", "/lures/ta/ta_packaged.jpg"],
+          "definition": "Solid TA (Strip/Wafer/Lure) measuring (1”x2”x1/8”,2”x2”x1/8”, 2”x3”x1/8”)  used for the monitoring of fruit flies. FT- TA (Wafer/Lure/) contain (2/4/6) grams of TA with a controlled release rate allowing for long term monitoring. FT- TA (Strip/Wafer/Lure) fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body",
+          "sds": "SDS FT-TA Lure.pdf",
+          "formulations" : {
+            "type": "solid",
+            "subtype": "wafer/lure/strip",
+            "sizes": ["1x2x1/8", "2x2x1/8", "2x3x1/8"],
+            "weights": ["2g", "4g", "6g"],
+            "packaging": ["12", "9", "6"]
+          },
+          "keys_to_remove": []
+        }
+      ],
+      "target_pests": [
+       "Natal Fruit Fly (Ceratitis rosa)",
+       "Mango Fruit Fly (Ceratitis cosyra)",
+       "Mediterranean Fruit Fly (Ceratitis capitata)",
+       "And more..."
+     ],
+     "special_instructions": "Store at room temperature. Not registered for control. No killing agent."
+   },
+   {
+     "group": "FT Zingerone",
+     "group_photo": null,
+     "products": [
+        {
+          "name": "FT Zingerone",
+          "photos": [],
+          "definition": "Solid Zingerone Strip measuring 1”x2”x1/8”  used for the monitoring of fruit flies. FT- Zingerone Strips contain 1.5 grams of Zingerone with a controlled release rate allowing for long term monitoring. FT- Zingerone Strips fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": null,
+          "formulations":{
+            "type": "solid",
+            "subtype": "strip",
+            "sizes": ["1x2x1/8"],
+            "weights": ["1.5g"],
+            "packaging": ["12"]
+          },
+          "keys_to_remove": [] 
+        } 
+     ],
+     "target_pests": ["Bactrocera jarvisi", "Bactrocera aglaiae"],
+     "special_instructions": "Store at room temperature. Not registered for control. No killing agent."
+   },
+   {
+     "group": "FT Methyl Eugenol",
+     "group_photo": "/liquid/me/all.jpg",
+     "products": [
+        {
+          "name": "FT Methyl Eugenol",
+          "definition": "FT Methyl Eugenol is a liquid attractant for the monitoring and surveying of Fruit Flies. FT Methyl Eugenol is guaranteed to be >98% purity by GC and is registered in the United States by the Environmental Protection Agency (EPA) for manufacturers use.",
+          "photos":["/liquid/me/1k_box.jpg","/liquid/me/1k.jpg","/liquid/me/20k_box.jpg"],
+          "sds": "SDS FT-Methyl Eugenol.pdf",
+          "formulations":{
+            "type": "liquid",
+            "purity": ">98%",
+            "chemical_name": "1,2-dimethoxy-4-(2-propenyl)benzene",
+            "physical_state": "Liquid",
+            "packaging_options": ["1KG", "5KG", "10KG", "20KG"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-ME Lure",
+          "photos": ["/lures/me/4g_open.jpg","/lures/me/4g_packaged.jpg","/lures/me/6g_open.jpg","/lures/me/6g_packaged.jpg","/lures/me/6g_single_open.jpg","/lures/me/6g_single_packaged.jpg"],
+          "definition": "Solid ME (Strip/Wafer/Lure) measuring (1”x2”x1/8”,2”x2”x1/8”, 2”x3”x1/8”)  used for the monitoring of fruit flies. FT- ME (Wafer/Lure/) contain (2/4/6) grams of ME with a controlled release rate allowing for long term monitoring. FT- ME (Strip/Wafer/Lure) fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": "SDS FT-ME Lure.pdf",
+          "formulations":{
+            "type": "solid",
+            "subtype": "wafer/lure/strip",
+            "sizes": ["1x2x1/8", "2x2x1/8", "2x3x1/8"],
+            "weights": ["2g", "4g", "6g"],
+            "packaging": ["12", "9", "6"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-MR Lure",
+          "photos": ["/lures/cl/mr_open.jpg"],
+          "definition": "Solid MR Lure measuring 2”x3”x1/8” used for the monitoring of fruit flies. FT- MR Wafer contains 6 grams ME and 2.3 grams Raspberry Ketone with a controlled release rate allowing for long term monitoring. FT- MR Lures fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": null,
+          "formulations": {
+            "type": "solid",
+            "subtype": "wafer",
+            "sizes": ["2x3x1/8"],
+            "contents": [
+              "6g Methyl Eugenol",
+              "2.3g Raspberry Ketone"
+            ],
+            "packaging": ["6"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-TMR Lure",
+          "photos": ["/lures/mix/tmr_open.jpg", "/lures/mix/tmr_packaged.jpg"],
+          "definition" : "Solid TMR Lure measuring 2”x3”x1/8” used for the monitoring of fruit flies. FT- TMR Wafer contains 5.5 grams ME, 2.2 grams Raspberry Ketone, and 3.5 grams Trimedlure with a controlled release rate allowing for long term monitoring. FT- TMR Lures fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": null,
+          "formulations": {
+            "type": "solid",
+            "subtype": "wafer",
+            "sizes": ["2x3x1/8"],
+            "contents": [
+              "5.5g Methyl Eugenol",
+              "2.2g Raspberry Ketone",
+              "3.5g Trimedlure"
+            ],
+            "packaging": ["6"]
+          },
+          "keys_to_remove": []
+        }
+     ],
+     "target_pests": [
+       "Oriental Fruit Fly (Bactrocera dorsalis)",
+       "Peach Fruit Fly (Bactrocera zonata)",
+       "Carambola Fruit Fly (Bactrocera carambolae)",
+       "Guava Fruit Fly (Bactrocera correcta)",
+       "Mango Fruit Fly (Bactrocera invadens)",
+       "And more..."
+     ],
+     "special_instructions": "Store at room temperature. Not registered for control. No killing agent."
+   },
+   {
+     "group": "FT Trimedlure",
+     "group_photo": "/liquid/tml/all.jpg",
+     "products":[
+        {
+          "name": "FT Trimedlure",
+          "photos":["/liquid/tml/10k.jpg","/liquid/tml/1k_box.jpg","/liquid/tml/1k.jpg","/liquid/tml/20k_box.jpg","/liquid/tml/20k.jpg"],
+          "definition": "Liquid attractant used in traps or devices for monitoring and controlling Fruit Flies. FT-Trimedlure is guaranteed >95% purity. FT-Trimedlure Targets the males of ceratitis fruit flies including the Mediterranean Fruit Fly (ceratitis capitata) and the Natal Fruit Fly (ceratitis rosa). The liquid is typically dyed red.",
+          "sds": "SDS FT-Trimedlure.pdf",
+          "formulations": {
+            "type": "liquid",
+            "purity": ">95%",
+            "specs": {
+              "CTA Acid": "<0.5%",
+              "Siglure Acid": "<0.2%",
+              "Trans C Isomer": "38%-45%",
+              "Trans B2 Isomer": "<24%",
+              "Total CIS Isomer": "<10%"
+              },
+              "packaging_options": ["1KG", "5KG", "10KG", "20KG"]
+            },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-TML Plug",
+          "photos": ["/lures/tml/plugs/plug1.jpg","/lures/tml/plugs/plug2.jpg","/lures/tml/plugs/plugs_packaged.jpg","/lures/tml/plugs/plugs1.jpg","/lures/tml/plugs/plugs2.jpg"],
+          "definition": "Solid Trimedlure Plug used for the monitoring of fruit flies. FT-TML Plugs contain (2/3) grams of Trimedlure with a controlled release rate allowing for long term monitoring. FT-TML Plugs fit within the standard plastic baskets used by the USDA in Jackson Traps.",
+          "sds": "SDS FT-TML Plug.pdf",
+          "formulations": {
+            "type": "solid",
+            "subtype": "plug",
+            "weights": ["2g", "3g"],
+            "packaging": ["Tray of 32", "Carton of 1000"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-TML Lure",
+          "photos": ["/lures/tml/panels/4g_open.jpg","/lures/tml/panels/4g_packaged.jpg"],
+          "definition": "Solid Trimedlure (Wafer/Lure/Panel) measuring (2”x2”x1/8”, 2”x3”x1/8”, 3”x6”x1/8”)  used for the monitoring of fruit flies. FT-TML (Wafer/Lure/Panel) contain (4/6/10) grams of Trimedlure with a controlled release rate allowing for long term monitoring. FT-TML (Wafer/Lure/Panel) fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": "SDS FT-TML Lure.pdf",
+          "formulations":{
+              "type": "solid",
+              "subtype": "wafer/lure/panel",
+              "sizes": ["2x2x1/8", "2x3x1/8", "3x6x1/8"],
+              "weights": ["4g", "6g", "10g"],
+              "packaging": ["9", "6", "1"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-TML Panel",
+          "photos": ["/lures/tml/panels/10g_open.jpg","/lures/tml/panels/10g_packaged.jpg"],
+          "definition": "Solid Trimedlure (Wafer/Lure/Panel) measuring (2”x2”x1/8”, 2”x3”x1/8”, 3”x6”x1/8”)  used for the monitoring of fruit flies. FT-TML (Wafer/Lure/Panel) contain (4/6/10) grams of Trimedlure with a controlled release rate allowing for long term monitoring. FT-TML (Wafer/Lure/Panel) fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": "SDS FT-TML Panel.pdf",
+          "formulations":{
+              "type": "solid",
+              "subtype": "wafer/lure/panel",
+              "sizes": ["2x2x1/8", "2x3x1/8", "3x6x1/8"],
+              "weights": ["4g", "6g", "10g"],
+              "packaging": ["9", "6", "1"]
+          },
+          "keys_to_remove": []
+        },
+        {
+          "name": "FT-TMR Lure",
+          "photos": ["/lures/mix/tmr_open.jpg", "/lures/mix/tmr_packaged.jpg"],
+          "definition" : "Solid TMR Lure measuring 2”x3”x1/8” used for the monitoring of fruit flies. FT- TMR Wafer contains 5.5 grams ME, 2.2 grams Raspberry Ketone, and 3.5 grams Trimedlure with a controlled release rate allowing for long term monitoring. FT- TMR Lures fit within the standard Jackson Traps used by the USDA as well as the C&C Trap Body.",
+          "sds": null,
+          "formulations": {
+            "type": "solid",
+            "subtype": "wafer",
+            "sizes": ["2x3x1/8"],
+            "contents": [
+              "5.5g Methyl Eugenol",
+              "2.2g Raspberry Ketone",
+              "3.5g Trimedlure"
+            ],
+            "packaging": ["6"]
+          },
+          "keys_to_remove": []
+        }
+     ],
+     "target_pests": [
+       "Mediterranean Fruit Fly (Ceratitis capitata)",
+       "Natal Fruit Fly (Ceratitis rosa)"
+     ],
+     "special_instructions": "Store at room temperature. Not registered for control. No killing agent. If crystalized, heat to melt."
+   }
+ ]
+ 

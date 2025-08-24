@@ -11,8 +11,8 @@ BEGIN
 	SET @Column = CASE WHEN @SearchProduct = 1 THEN 'ProductId' ELSE 'ParentId' END;
 
 	SET @Sql = N'
-		SELECT 
-			f.ProductId,
+		SELECT
+			f.Id,
 			f.ProductId,
 			f.ParentId,
 			fk.[Key],
@@ -25,7 +25,7 @@ BEGIN
 		WHERE f.' + QUOTENAME(@Column) + ' = @SearchId
 		      AND f.DeletedAt IS NULL';
 
-	EXEC sp_executesql @Sql, N'SearchId INT', @SearchId = @SearchId;
+	EXEC sp_executesql @Sql, N'@SearchId INT', @SearchId = @SearchId;
 
 	RETURN 0
 END

@@ -1,0 +1,25 @@
+{
+  "DbName": "FarmaTechDb",
+  "ConnectionStrings": {
+    "Default": "Data Source=JOHNS_COMPUTER\\SQLDEV;Initial Catalog=FarmaTechDb;Integrated Security=True;Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"
+  },
+  "JsonDetails": {
+    "IsRecursive": true,
+    "TargetTables": {
+      "TargetPests": {
+        "HasIdentity": true,
+        "DeletePrevious": true
+      }
+    },
+    "TargetFields": [
+      {
+        "Name": "target_pests",
+        "Type": "list",
+        "SubType": "string",
+        "ColumnName": "TargetPest",
+        "ColumnType": "VARCHAR(255)",
+        "TableName": "TargetPests"
+      }
+    ]
+  }
+}

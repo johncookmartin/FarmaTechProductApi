@@ -34,7 +34,7 @@ public class ProductData : IProductData
 
         foreach (var formulation in flatFormulations)
         {
-            if (formulation.ParentId.HasValue)
+            if (formulation.ParentId.HasValue && searchProduct)
             {
                 formulationDict[formulation.Id].ObjectValues = await GetFormulationsAsync(formulation.ParentId.Value, false);
             }
