@@ -30,13 +30,9 @@ public class ProductData : IProductData
             {
                 formulationDict[formulation.Id].ArrayValues = await GetFormulationArray(formulation.Id);
             }
-        }
-
-        foreach (var formulation in flatFormulations)
-        {
-            if (formulation.ParentId.HasValue && searchProduct)
+            if (formulation.ValueType == ValueTypeEnum.Object)
             {
-                formulationDict[formulation.Id].ObjectValues = await GetFormulationsAsync(formulation.ParentId.Value, false);
+                formulationDict[formulation.Id].ObjectValues = await GetFormulationsAsync(formulation.Id, false);
             }
         }
 

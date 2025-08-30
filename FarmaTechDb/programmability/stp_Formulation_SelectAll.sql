@@ -5,27 +5,19 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DECLARE @Sql NVARCHAR(MAX),
-	        @Column NVARCHAR(50);
-
-	SET @Column = CASE WHEN @SearchProduct = 1 THEN 'ProductId' ELSE 'ParentId' END;
-
-	SET @Sql = N'
-		SELECT
-			f.Id,
-			f.ProductId,
-			f.ParentId,
-			fk.[Key],
-			f.ValueType,
-			f.StringValue,
-			f.SortOrder
-		FROM dbo.Formulations f
-		INNER JOIN dbo.FormulationKeys fk
-			ON f.FormulationKeyId = fk.Id
-		WHERE f.' + QUOTENAME(@Column) + ' = @SearchId
-		      AND f.DeletedAt IS NULL';
-
-	EXEC sp_executesql @Sql, N'@SearchId INT', @SearchId = @SearchId;
+	SELECT f.[Id] AS 'Id',
+	       f.[ProductId] AS 'ProductId',
+		   f.[ParentId] AS 'ParentId',
+		   fk.[Key] AS 'Key',
+		   f.[ValueType] AS 'ValueType',
+		   f.[StringValue] AS 'StringValue',
+		   f.[SortOrder] AS 'SortOrder'
+	FROM dbo.Formulations f
+	INNER JOIN dbo.FormulationKeys fk
+	ON f.FormulationKeyId = fk.Id
+	WHERE CASE WHEN @SearchProduct = 1 THEN f.ProductId ELSE f.ParentId END = @SearchId AND
+		  CASE WHEN @SearchProduct = 1 THEN f.ParentId ELSE NULL END IS NULL AND
+		  f.DeletedAt IS NULL;
 
 	RETURN 0
 END
