@@ -34,14 +34,37 @@ builder.Services.AddScoped<IFlyFileAccess>(sp =>
     return new FlyFileAccess(blobService, db);
 });
 
+// CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevCors", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+
+    options.AddPolicy("ProdCors", policy =>
+    {
+        policy.WithOrigins("https://victorious-mushroom-0ff03f310.6.azurestaticapps.net/", "https://www.farmatech.com/")
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("DevCors");
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseCors("ProdCors");
 }
 
 app.UseHttpsRedirection();
